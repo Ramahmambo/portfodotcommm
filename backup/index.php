@@ -1,0 +1,100 @@
+<?php 
+// index.php
+$title = "Your Portfolio";
+include('header.php');
+?>
+
+<!-- Head Section -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><?php echo $title; ?></title>
+  <!-- Link to the CSS file -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<!-- Header -->
+<header>
+  <div class="logo">Your Portfolio</div>
+  <nav>
+    <a href="index.php">Home</a>
+    <a href="about.php">About</a>
+    <a href="experiences.php">Experience</a>
+    <a href="contact.php">Contact</a>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<div class="hero">
+  <div class="hero-content">
+    <!-- Text content on the left side -->
+    <div class="hero-text">
+      <h1>Welcome to My Portfolio</h1>
+      <p><!--I'm a Bachelor of Science in Information Technology-->
+I am an experienced IT Specialist with a Bachelor's degree in Information Technology, equipped with a comprehensive skill set in both networking and software development. My passion for technology drives me to continually enhance my skills and knowledge, keeping up with the latest trends and best practices in the IT industry.
+
+<!-- With expertise in network management and security, I am adept at designing, implementing, and maintaining robust IT infrastructures. I also excel in software development, specializing in building scalable, efficient, and user-friendly applications. From backend coding to frontend design, I bring solutions to life that meet business needs and user expectations.
+
+My journey has included internships at renowned organizations, hands-on experience at the Judiciary, and multiple successful freelance projects. I am always looking to take on new challenges that allow me to leverage my technical skills to solve complex problems and drive innovation in the IT field. -->
+
+      </p>
+      <button onclick="location.href='about.php'">Learn More</button>
+    </div>
+    <!-- Image content on the right side -->
+    <div class="hero-image">
+      <img src="assets/images/ramah.jpg" alt="Your Image">
+    </div>
+  </div>
+</div>
+
+<!-- Slide Navigation -->
+<div class="slider">
+  <div class="slides">
+    <div class="slide" id="slide1">School Information</div>
+    <div class="slide" id="slide2">Work Experience</div>
+    <div class="slide" id="slide3">Internships</div>
+  </div>
+  <button id="prevBtn">&#10094;</button>
+  <button id="nextBtn">&#10095;</button>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Your Portfolio. All rights reserved.</p>
+</footer>
+
+<script>
+// JavaScript for Slide Navigation
+let currentSlide = 0;
+
+function showSlide() {
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach((slide, index) => {
+        slide.style.transform = `translateX(-${currentSlide * 100}%)`;
+    });
+}
+
+function nextSlide() {
+    const slides = document.querySelectorAll('.slide');
+    if (currentSlide < slides.length - 1) {
+        currentSlide++;
+    } else {
+        currentSlide = 0;
+    }
+    showSlide();
+}
+
+function prevSlide() {
+    const slides = document.querySelectorAll('.slide');
+    if (currentSlide > 0) {
+        currentSlide--;
+    } else {
+        currentSlide = slides.length - 1;
+    }
+    showSlide();
+}
+
+setInterval(nextSlide, 5000);
+document.querySelector('#nextBtn').addEventListener('click', nextSlide);
+document.querySelector('#prevBtn').addEventListener('click', prevSlide);
+</script>
